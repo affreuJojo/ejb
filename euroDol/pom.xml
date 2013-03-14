@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.istic.ejb</groupId>
+  <artifactId>euroDol</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>euroDol</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.ow2.spec.ee</groupId>
+    	<artifactId>ow2-ejb-3.1-spec</artifactId>
+    	<version>1.0.11</version>
+    	<scope>provided</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.ow2.spec.ee</groupId>
+    	<artifactId>ow2-jpa-2.0-spec</artifactId>
+    	<version>1.0.11</version>
+    	<scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+  <modules>
+  	<module>serviceEuroDol</module>
+  	<module>serviceEuroDolImpl</module>
+  	<module>client</module>
+  	<module>W:/M2/TAA/TP2/tpejb3/entities_ejb3</module>
+  </modules>
+  
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+				</configuration>
+	
+			</plugin>
+	
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-my-jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
